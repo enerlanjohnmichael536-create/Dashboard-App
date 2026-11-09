@@ -1,0 +1,13 @@
+{
+  "name": "plant-inventory",
+  "version": "1.0.0",
+  "description": "Plant inventory dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^4.21.2"
+  }
+}

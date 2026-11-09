@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plant inventory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="top">
+    <div>
+      <h1>Plant inventory</h1>
+      <p class="sub">What’s growing, what it costs, and what needs restocking.</p>
+    </div>
+    <button class="btn primary" id="addBtn">Add plant</button>
+  </header>
+
+  <section class="stats" id="stats" aria-label="Summary"></section>
+
+  <section class="mix" aria-label="Stock by category">
+    <h2>Stock by category</h2>
+    <div class="bar" id="bar"></div>
+    <ul class="legend" id="legend"></ul>
+  </section>
+
+  <div class="tools">
+    <input type="search" id="q" placeholder="Search plants" aria-label="Search plants">
+    <select id="filter" aria-label="Filter by category"></select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Category</th>
+          <th class="num">Price each</th><th class="num">In stock</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+
+<!-- Add / Edit form -->
+<dialog id="dlg">
+  <form id="form">
+    <h2 id="dlgTitle">Add plant</h2>
+    <label>Name <input name="name" required maxlength="60" autocomplete="off"></label>
+    <label>Category <select name="category" required></select></label>
+    <div class="row">
+      <label>Price each ($) <input name="price" type="number" min="0" step="0.01" required></label>
+      <label>Quantity <input name="quantity" type="number" min="0" step="1" required></label>
+    </div>
+    <p class="err" id="err" role="alert"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="cancel">Cancel</button>
+      <button type="submit" class="btn primary" id="saveBtn">Add plant</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
